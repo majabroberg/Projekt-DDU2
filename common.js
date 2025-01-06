@@ -27,7 +27,8 @@ function randomNumber() {
 input.value = "95"
 function startGrid() {
     let grid = document.createElement("div");
-    grid.setAttribute("id", "grid"); document.body.appendChild(grid);
+    grid.setAttribute("id", "grid");
+    body.insertBefore(grid, script);
     for (let i = 0; i < 95; i++) {
         let cell = document.createElement("div")
         grid.appendChild(cell)
@@ -57,6 +58,9 @@ button.addEventListener("click", function () {
         cell.textContent = randomNumber();
     }
 })
+
+
+
 
 
 

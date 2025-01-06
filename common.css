@@ -57,3 +57,14 @@ a:hover {
     gap: 8px;
     margin-top: 10px;
 }
+
+#divRemove {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.square {
+    border: 1px solid black;
+    text-align: center;
+}
