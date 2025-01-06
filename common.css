@@ -40,3 +40,20 @@ a:hover {
     gap: 10px;
     margin-top: 10px;
 }
+
+.cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(19, 50px);
+    gap: 8px;
+    margin-top: 10px;
+}
