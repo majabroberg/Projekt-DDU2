@@ -19,8 +19,6 @@ const button = document.createElement("button");
 numbers.appendChild(button);
 button.textContent = "Create"
 
-
-
 function randomNumber() {
     number = Math.ceil(99 * Math.random());
     return number;
@@ -35,10 +33,9 @@ function startGrid() {
         let cell = document.createElement("div");
         let numbers = randomNumber();
         grid.appendChild(cell);
-        cell.setAttribute("class", "cell");
         cell.textContent = numbers;
+        cell.setAttribute("class", `cell ${"_" + numbers}`);
         array.push(numbers);
-        cell.setAttribute("id", `${numbers}`);
     }
 }
 startGrid();
@@ -61,15 +58,8 @@ button.addEventListener("click", function () {
         let cell = document.createElement("div");
         let numbers = randomNumber();
         grid.appendChild(cell);
-        cell.setAttribute("class", "cell");
+        cell.setAttribute("class", `cell ${"_" + numbers}`);
         cell.textContent = numbers;
         array.push(numbers);
     }
 })
-
-
-
-
-
-
-
