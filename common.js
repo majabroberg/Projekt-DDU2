@@ -2,6 +2,7 @@ const links = document.querySelector("#links")
 const home = document.createElement("a");
 const body = document.querySelector("body");
 const script = document.querySelector("script");
+let array = [];
 links.appendChild(home);
 home.textContent = "Home";
 home.setAttribute("href", "../index.html")
@@ -19,6 +20,7 @@ numbers.appendChild(button);
 button.textContent = "Create"
 
 
+
 function randomNumber() {
     number = Math.ceil(99 * Math.random());
     return number;
@@ -30,10 +32,13 @@ function startGrid() {
     grid.setAttribute("id", "grid");
     body.insertBefore(grid, script);
     for (let i = 0; i < 95; i++) {
-        let cell = document.createElement("div")
-        grid.appendChild(cell)
+        let cell = document.createElement("div");
+        let numbers = randomNumber();
+        grid.appendChild(cell);
         cell.setAttribute("class", "cell");
-        cell.textContent = randomNumber();
+        cell.textContent = numbers;
+        array.push(numbers);
+        cell.setAttribute("id", `${numbers}`);
     }
 }
 startGrid();
@@ -41,6 +46,7 @@ startGrid();
 button.addEventListener("click", function () {
     const inputValue = input.value;
     let grid = document.getElementById("grid");
+    array = [];
 
     if (grid) {
         grid.innerHTML = '';
@@ -52,12 +58,15 @@ button.addEventListener("click", function () {
     }
 
     for (let i = 0; i < inputValue; i++) {
-        let cell = document.createElement("div")
-        grid.appendChild(cell)
+        let cell = document.createElement("div");
+        let numbers = randomNumber();
+        grid.appendChild(cell);
         cell.setAttribute("class", "cell");
-        cell.textContent = randomNumber();
+        cell.textContent = numbers;
+        array.push(numbers);
     }
 })
+
 
 
 
