@@ -68,3 +68,9 @@ a:hover {
     border: 1px solid black;
     text-align: center;
 }
+
+.divSum {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}

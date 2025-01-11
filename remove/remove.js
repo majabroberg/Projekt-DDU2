@@ -1,7 +1,7 @@
 const divRemove = document.createElement("div");
 body.insertBefore(divRemove, grid);
+divRemove.setAttribute("id", "divRemove");
 
-divRemove.setAttribute("id", "divRemove")
 const newRandom = document.createElement("button");
 divRemove.appendChild(newRandom);
 const numberBox = document.createElement("div");
