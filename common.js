@@ -15,9 +15,9 @@ text.textContent = "How many numbers in the grid?"
 numbers.appendChild(text);
 let input = document.createElement("input");
 numbers.appendChild(input);
-const button = document.createElement("button");
-numbers.appendChild(button);
-button.textContent = "Create"
+const create = document.createElement("button");
+numbers.appendChild(create);
+create.textContent = "Create"
 
 function randomNumber() {
     number = Math.ceil(99 * Math.random());
@@ -38,9 +38,10 @@ function startGrid() {
         array.push(numbers);
     }
 }
+
 startGrid();
 
-button.addEventListener("click", function () {
+create.addEventListener("click", function () {
     const inputValue = input.value;
     let grid = document.getElementById("grid");
     array = [];

@@ -1,6 +1,6 @@
 const divRemove = document.createElement("div");
 body.insertBefore(divRemove, grid);
-divRemove.setAttribute("id", "divRemove");
+divRemove.setAttribute("class", "divBox");
 
 const newRandom = document.createElement("button");
 divRemove.appendChild(newRandom);
@@ -18,7 +18,6 @@ const removeBox = document.createElement("div");
 divRemove.appendChild(removeBox);
 removeBox.setAttribute("class", "square");
 removeBox.textContent = "-";
-removeBox.style.width = "150px";
 let removeNumber;
 
 function highlightDivs() {
@@ -38,19 +37,19 @@ function highlightDivs() {
 newRandom.addEventListener("click", function () {
     removeBox.textContent = " - ";
     let allCells = document.querySelectorAll('.cell');
-    allCells.forEach(cell => {
-        if (cell.style.backgroundColor === "orange") {
-            cell.style.backgroundColor = "";
+    for (let i = 0; i < allCells.length; i++) {
+        if (allCells[i].style.backgroundColor === "orange") {
+            allCells[i].style.backgroundColor = "";
         }
-    });
+    }
 
     removeNumber = randomNumber();
     numberBox.textContent = removeNumber;
 
     let elements = document.querySelectorAll(`.${"_" + removeNumber}`);
-    elements.forEach(element => {
-        element.style.backgroundColor = "orange";
-    });
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.backgroundColor = "orange";
+    }
 });
 
 remove.addEventListener("click", function () {
