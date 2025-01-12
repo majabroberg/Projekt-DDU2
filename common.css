@@ -69,3 +69,7 @@ a:hover {
     gap: 10px;
     margin: 10px;
 }
+
+.cell:hover {
+    background-color: lightblue;
+}
