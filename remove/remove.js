@@ -25,13 +25,11 @@ function highlightDivs() {
     if (elements.length == 0) {
         removeBox.textContent = "Nothing to remove";
     }
-    else {
-        elements.forEach(element => {
-            element.style.backgroundColor = "red";
-            element.textContent = "X"
-            removeBox.textContent = `${removeNumber}` + " removed " + elements.length + " times";
-        });
-    };
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.backgroundColor = "red";
+        elements[i].textContent = "X";
+    }
+    removeBox.textContent = `${removeNumber} removed ${elements.length} times`;
 }
 
 newRandom.addEventListener("click", function () {
@@ -42,7 +40,6 @@ newRandom.addEventListener("click", function () {
             allCells[i].style.backgroundColor = "";
         }
     }
-
     removeNumber = randomNumber();
     numberBox.textContent = removeNumber;
 
