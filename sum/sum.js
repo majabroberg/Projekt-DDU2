@@ -22,7 +22,9 @@ markedBox.setAttribute("class", "square");
 markedBox.textContent = "-";
 const reset = document.createElement("button");
 divSum2.appendChild(reset);
-reset.textContent = "Reset"
+reset.textContent = "Reset";
+
+let markedSum = 0;
 
 function sumOfAll() {
     let sum = 0;
@@ -34,7 +36,6 @@ function sumOfAll() {
 
 function sumMarked() {
     let elements = document.querySelectorAll(".cell");
-    let markedSum = 0;
 
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener("click", function () {
@@ -45,8 +46,9 @@ function sumMarked() {
                 elements[i].style.backgroundColor = "lightgreen";
                 markedSum += parseInt(elements[i].textContent);
             }
+
             markedBox.textContent = markedSum;
-            if (markedBox.textContent == 0) {
+            if (markedSum === 0) {
                 markedBox.textContent = " - ";
             }
         });
@@ -59,6 +61,7 @@ sumMarked();
 create.addEventListener("click", function () {
     sumOfAll();
     markedBox.textContent = " - "
+    markedSum = 0;
     sumMarked();
 });
 
@@ -70,4 +73,5 @@ reset.addEventListener("click", function () {
             elements[i].style.backgroundColor = "";
         }
     }
+    markedSum = 0;
 });
