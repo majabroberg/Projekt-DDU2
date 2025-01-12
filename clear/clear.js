@@ -9,8 +9,11 @@ function hover() {
     let elements = document.querySelectorAll(".cell");
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener("mouseover", function () {
-            if (elements[i].style.backgroundColor !== "red") {
+            if (elements[i].style.backgroundColor !== "red" && elements[i].style.backgroundColor !== "orange") {
                 elements[i].style.backgroundColor = "lightblue";
+            }
+            else if (elements[i].style.backgroundColor === "red") {
+                elements[i].style.backgroundColor = "orange";
             }
         });
         elements[i].addEventListener("mouseleave", function () {
@@ -19,14 +22,25 @@ function hover() {
             }
         });
         elements[i].addEventListener("click", function () {
-            elements[i].style.backgroundColor = "red";
-            elements[i].textContent = "  ";
+            if (elements[i].style.backgroundColor !== "red" && elements[i].style.backgroundColor !== "orange") {
+                elements[i].style.backgroundColor = "orange";
+                elements[i].textContent = "  ";
+                elements[i].addEventListener("mouseleave", function () {
+                    elements[i].style.backgroundColor = "red";
+                    elements[i].textContent = "  ";
+                });
+            }
+            else if (elements[i].style.backgroundColor === "orange") {
+                elements[i].textContent = array[i];
+                elements[i].style.backgroundColor = "lightblue";
+                elements[i].addEventListener("mouseleave", function () {
+                    elements[i].style.backgroundColor = "lightgrey";
+                    elements[i].textContent = array[i];
+                });
+            }
         });
-
     }
 }
-
-
 
 hover();
 
@@ -36,9 +50,12 @@ create.addEventListener("click", function () {
 
 fillCleared.addEventListener("click", function () {
     let elements = document.querySelectorAll(".cell");
+
     for (let i = 0; i < elements.length; i++) {
         if (elements[i].style.backgroundColor === "red") {
-            elements[i].style.backgroundColor = "lightgrey";
+            elements[i].style.backgroundColor = "";
+            elements[i].textContent = array[i];
         }
     }
+    hover();
 });
