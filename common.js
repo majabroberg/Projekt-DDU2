@@ -42,7 +42,7 @@ function startGrid() {
 startGrid();
 
 create.addEventListener("click", function () {
-    const inputValue = input.value;
+    let inputValue = input.value;
     let grid = document.getElementById("grid");
     array = [];
 
