@@ -14,17 +14,16 @@ const text = document.createElement("p");
 text.textContent = "How many numbers in the grid?"
 numbers.appendChild(text);
 let input = document.createElement("input");
+input.value = "95"
 numbers.appendChild(input);
 const create = document.createElement("button");
 numbers.appendChild(create);
 create.textContent = "Create"
 
 function randomNumber() {
-    number = Math.ceil(99 * Math.random());
-    return number;
+    return Math.ceil(99 * Math.random());
 }
 
-input.value = "95"
 function startGrid() {
     let grid = document.createElement("div");
     grid.setAttribute("id", "grid");
@@ -36,6 +35,15 @@ function startGrid() {
         cell.textContent = numbers;
         cell.setAttribute("class", `cell ${"_" + numbers}`);
         array.push(numbers);
+    }
+}
+
+function clearHighlights() {
+    let elements = document.querySelectorAll(".cell");
+    for (let i = 0; i < elements.length; i++) {
+        if (elements[i].style.backgroundColor === "lightgreen") {
+            elements[i].style.backgroundColor = "";
+        }
     }
 }
 

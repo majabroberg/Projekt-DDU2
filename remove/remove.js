@@ -20,11 +20,20 @@ removeBox.setAttribute("class", "square");
 removeBox.textContent = "-";
 let removeNumber;
 
-function highlightDivs() {
+function highlightCells() {
     let elements = document.querySelectorAll(`.${"_" + removeNumber}`);
     if (elements.length == 0) {
         removeBox.textContent = "Nothing to remove";
     }
+
+    else if (elements.length == 1) {
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.backgroundColor = "red";
+            elements[i].textContent = "X";
+        }
+        removeBox.textContent = `${removeNumber} removed ${elements.length} time`;
+    }
+
     else {
         for (let i = 0; i < elements.length; i++) {
             elements[i].style.backgroundColor = "red";
@@ -52,5 +61,5 @@ newRandom.addEventListener("click", function () {
 });
 
 remove.addEventListener("click", function () {
-    highlightDivs();
+    highlightCells();
 });

@@ -1,8 +1,8 @@
-const div = document.createElement("div");
-body.insertBefore(div, grid);
-div.setAttribute("class", "divBox")
+const divClear = document.createElement("div");
+body.insertBefore(divClear, grid);
+divClear.setAttribute("class", "divBox")
 const fillCleared = document.createElement("button");
-div.appendChild(fillCleared);
+divClear.appendChild(fillCleared);
 fillCleared.textContent = "Fill cleared";
 
 function eventListeners() {

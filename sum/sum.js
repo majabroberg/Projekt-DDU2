@@ -67,11 +67,6 @@ create.addEventListener("click", function () {
 
 reset.addEventListener("click", function () {
     markedBox.textContent = " - ";
-    let elements = document.querySelectorAll(".cell");
-    for (let i = 0; i < elements.length; i++) {
-        if (elements[i].style.backgroundColor === "lightgreen") {
-            elements[i].style.backgroundColor = "";
-        }
-    }
+    clearHighlights();
     markedSum = 0;
 });
