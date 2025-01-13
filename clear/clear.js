@@ -5,57 +5,50 @@ const fillCleared = document.createElement("button");
 div.appendChild(fillCleared);
 fillCleared.textContent = "Fill cleared";
 
-function hover() {
+function eventListeners() {
     let elements = document.querySelectorAll(".cell");
     for (let i = 0; i < elements.length; i++) {
         elements[i].addEventListener("mouseover", function () {
-            if (elements[i].style.backgroundColor !== "red" && elements[i].style.backgroundColor !== "orange") {
+            if (elements[i].clicked) {
+                elements[i].style.backgroundColor = "orange";
+            } else {
                 elements[i].style.backgroundColor = "lightblue";
             }
-            else if (elements[i].style.backgroundColor === "red") {
-                elements[i].style.backgroundColor = "orange";
+        });
+
+        elements[i].addEventListener("mouseout", function () {
+            if (elements[i].clicked) {
+                elements[i].style.backgroundColor = "red";
+            } else {
+                elements[i].style.backgroundColor = "";
             }
         });
-        elements[i].addEventListener("mouseleave", function () {
-            if (elements[i].style.backgroundColor !== "red") {
-                elements[i].style.backgroundColor = "lightgrey";
-            }
-        });
+
         elements[i].addEventListener("click", function () {
-            if (elements[i].style.backgroundColor !== "red" && elements[i].style.backgroundColor !== "orange") {
-                elements[i].style.backgroundColor = "orange";
-                elements[i].textContent = "  ";
-                elements[i].addEventListener("mouseleave", function () {
-                    elements[i].style.backgroundColor = "red";
-                    elements[i].textContent = "  ";
-                });
-            }
-            else if (elements[i].style.backgroundColor === "orange") {
+            if (elements[i].clicked) {
+                elements[i].style.backgroundColor = "";
                 elements[i].textContent = array[i];
-                elements[i].style.backgroundColor = "lightblue";
-                elements[i].addEventListener("mouseleave", function () {
-                    elements[i].style.backgroundColor = "lightgrey";
-                    elements[i].textContent = array[i];
-                });
+                elements[i].clicked = false;
+            } else {
+                elements[i].style.backgroundColor = "orange";
+                elements[i].textContent = "";
+                elements[i].clicked = true;
             }
         });
     }
 }
 
-hover();
-
-create.addEventListener("click", function () {
-    hover()
-});
+eventListeners();
 
 fillCleared.addEventListener("click", function () {
     let elements = document.querySelectorAll(".cell");
-
     for (let i = 0; i < elements.length; i++) {
-        if (elements[i].style.backgroundColor === "red") {
-            elements[i].style.backgroundColor = "";
-            elements[i].textContent = array[i];
-        }
+        elements[i].style.backgroundColor = "";
+        elements[i].textContent = array[i];
+        elements[i].clicked = false;
     }
-    hover();
+});
+
+create.addEventListener("click", function () {
+    eventListeners();
 });

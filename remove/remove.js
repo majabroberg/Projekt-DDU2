@@ -25,11 +25,13 @@ function highlightDivs() {
     if (elements.length == 0) {
         removeBox.textContent = "Nothing to remove";
     }
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = "red";
-        elements[i].textContent = "X";
+    else {
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.backgroundColor = "red";
+            elements[i].textContent = "X";
+        }
+        removeBox.textContent = `${removeNumber} removed ${elements.length} times`;
     }
-    removeBox.textContent = `${removeNumber} removed ${elements.length} times`;
 }
 
 newRandom.addEventListener("click", function () {

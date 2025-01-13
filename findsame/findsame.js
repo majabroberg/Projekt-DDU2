@@ -13,8 +13,13 @@ let clickedNumber;
 function highlightSame() {
     let sameNumbers = document.querySelectorAll(`.${"_" + clickedNumber}`);
     for (let i = 0; i < sameNumbers.length; i++) {
-        sameNumbers[i].style.backgroundColor = "lightgreen";
-        clickNumber.textContent = `${sameNumbers.length} copies of the number ${clickedNumber}`;
+        if (sameNumbers.length === 1) {
+            sameNumbers[i].style.backgroundColor = "lightgreen";
+            clickNumber.textContent = `${sameNumbers.length} copy of the number ${clickedNumber}`;
+        } else {
+            sameNumbers[i].style.backgroundColor = "lightgreen";
+            clickNumber.textContent = `${sameNumbers.length} copies of the number ${clickedNumber}`;
+        }
     }
 }
 
