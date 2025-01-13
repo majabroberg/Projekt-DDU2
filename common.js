@@ -7,18 +7,16 @@ links.appendChild(home);
 home.textContent = "Home";
 home.setAttribute("href", "../index.html")
 
-const numbers = document.createElement("div");
-numbers.setAttribute("id", "numbers")
-body.insertBefore(numbers, script);
-const text = document.createElement("p");
-text.textContent = "How many numbers in the grid?"
-numbers.appendChild(text);
+const divNumbersGrid = document.createElement("div");
+divNumbersGrid.setAttribute("id", "numbers")
+body.insertBefore(divNumbersGrid, script);
+const question = document.createElement("div");
+question.textContent = "How many numbers in the grid?"
+divNumbersGrid.appendChild(question);
 let input = document.createElement("input");
 input.value = "95"
-numbers.appendChild(input);
-const create = document.createElement("button");
-numbers.appendChild(create);
-create.textContent = "Create"
+divNumbersGrid.appendChild(input);
+const createButton = buttonCreate(numbers, "Create");
 
 function randomNumber() {
     return Math.ceil(99 * Math.random());
@@ -47,9 +45,23 @@ function clearHighlights() {
     }
 }
 
+function createDivBox(className) {
+    const divBox = document.createElement("div");
+    body.insertBefore(divBox, grid);
+    divBox.setAttribute("class", className);
+    return divBox;
+}
+
+function buttonCreate(parent, text) {
+    const button = document.createElement("button");
+    button.textContent = text;
+    parent.appendChild(button);
+    return button;
+}
+
 startGrid();
 
-create.addEventListener("click", function () {
+createButton.addEventListener("click", function () {
     let inputValue = input.value;
     let grid = document.getElementById("grid");
     array = [];

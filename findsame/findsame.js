@@ -1,12 +1,8 @@
-const divSame = document.createElement("div");
-body.insertBefore(divSame, grid);
-divSame.setAttribute("class", "divBox")
+const divSame = createDivBox("divBox");
 const clickNumber = document.createElement("div");
 divSame.appendChild(clickNumber);
 clickNumber.textContent = "Click on a number to find copies";
-const reset = document.createElement("button");
-divSame.appendChild(reset);
-reset.textContent = "Reset";
+const reset = buttonCreate(divSame, "Reset");
 let clickedNumber;
 
 function highlightSame() {
@@ -38,11 +34,10 @@ clicked();
 
 reset.addEventListener("click", function () {
     clickNumber.textContent = " Click on a number to find copies ";
-    let elements = document.querySelectorAll(".cell");
     clearHighlights();
     markedSum = 0;
 });
 
-create.addEventListener("click", function () {
+createButton.addEventListener("click", function () {
     clicked();
 });

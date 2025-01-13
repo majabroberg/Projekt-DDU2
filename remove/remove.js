@@ -1,22 +1,13 @@
-const divRemove = document.createElement("div");
-body.insertBefore(divRemove, grid);
-divRemove.setAttribute("class", "divBox");
-
-const newRandom = document.createElement("button");
-divRemove.appendChild(newRandom);
-const numberBox = document.createElement("div");
+const divRemove = createDivBox("divBox");
+const newRandom = buttonCreate(divRemove, "New random number");
+const numberBox = createDivBox("square");
 divRemove.appendChild(numberBox);
-numberBox.setAttribute("class", "square");
 numberBox.textContent = "-";
 numberBox.style.width = "50px";
-newRandom.textContent = "New random number"
 
-const remove = document.createElement("button");
-divRemove.appendChild(remove);
-remove.textContent = "Remove"
-const removeBox = document.createElement("div");
+const remove = buttonCreate(divRemove, "Remove");
+const removeBox = createDivBox("square");
 divRemove.appendChild(removeBox);
-removeBox.setAttribute("class", "square");
 removeBox.textContent = "-";
 let removeNumber;
 

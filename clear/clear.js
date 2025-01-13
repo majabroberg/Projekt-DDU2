@@ -1,9 +1,5 @@
-const divClear = document.createElement("div");
-body.insertBefore(divClear, grid);
-divClear.setAttribute("class", "divBox")
-const fillCleared = document.createElement("button");
-divClear.appendChild(fillCleared);
-fillCleared.textContent = "Fill cleared";
+const divClear = createDivBox("divBox");
+const fillCleared = buttonCreate(divClear, "Fill cleared");
 
 function eventListeners() {
     let elements = document.querySelectorAll(".cell");
@@ -49,6 +45,6 @@ fillCleared.addEventListener("click", function () {
     }
 });
 
-create.addEventListener("click", function () {
+createButton.addEventListener("click", function () {
     eventListeners();
 });

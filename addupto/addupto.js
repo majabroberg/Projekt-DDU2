@@ -1,15 +1,12 @@
-const divAddUp = document.createElement("div");
+const divAddUp = createDivBox("divBox");
 body.insertBefore(divAddUp, grid);
-divAddUp.setAttribute("class", "divBox")
 const clickNumber = document.createElement("div");
 divAddUp.appendChild(clickNumber);
 clickNumber.textContent = "Add up to:";
 let total = document.createElement("input");
 total.value = "179"
 divAddUp.appendChild(total);
-const addUpp = document.createElement("button");
-divAddUp.appendChild(addUpp);
-addUpp.textContent = "Find two cells that Add Up";
+const addUpp = buttonCreate(divAddUp, "Find two cells that Add Up")
 
 let totalValue = total.value;
 
